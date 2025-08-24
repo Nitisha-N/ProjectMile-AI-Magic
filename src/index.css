@@ -2,39 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Portia AI PM Design System - Professional tech aesthetic */
+/* Portia AI PM Design System - Lovable Blue Aesthetic */
 
 @layer base {
   :root {
-    /* Primary brand colors - Deep tech blue */
-    --background: 220 25% 98%;
-    --foreground: 220 15% 15%;
+    /* Beautiful blue gradient backgrounds */
+    --background: 220 30% 97%;
+    --foreground: 220 20% 12%;
     
-    /* Card system */
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    /* Card system with soft blue tints */
+    --card: 215 25% 99%;
+    --card-foreground: 220 20% 12%;
     
     /* Popover system */
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover: 215 25% 99%;
+    --popover-foreground: 220 20% 12%;
     
-    /* Primary - Deep professional blue */
-    --primary: 225 85% 55%;
+    /* Primary - Vibrant ocean blue */
+    --primary: 215 95% 58%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 225 85% 65%;
+    --primary-glow: 215 95% 68%;
+    --primary-light: 215 85% 75%;
+    --primary-dark: 215 95% 45%;
     
-    /* Secondary - Soft purple accent */
-    --secondary: 250 40% 95%;
-    --secondary-foreground: 250 40% 25%;
+    /* Secondary - Soft sky blue */
+    --secondary: 210 50% 92%;
+    --secondary-foreground: 210 70% 25%;
     
-    /* Muted tones */
-    --muted: 220 20% 96%;
-    --muted-foreground: 220 15% 55%;
+    /* Muted blue tones */
+    --muted: 215 25% 94%;
+    --muted-foreground: 215 20% 50%;
     
-    /* Accent - AI purple */
-    --accent: 270 75% 65%;
+    /* Accent - Electric blue */
+    --accent: 200 95% 60%;
     --accent-foreground: 0 0% 100%;
-    --accent-glow: 270 75% 75%;
+    --accent-glow: 200 95% 70%;
+    --accent-light: 200 85% 75%;
     
     /* Status colors */
     --success: 150 65% 50%;
@@ -44,24 +47,29 @@
     --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 100%;
     
-    /* Interactive elements */
-    --border: 220 20% 88%;
-    --input: 220 20% 94%;
-    --ring: 225 85% 55%;
+    /* Interactive elements with blue tints */
+    --border: 215 30% 85%;
+    --input: 215 25% 92%;
+    --ring: 215 95% 58%;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(225 85% 55%), hsl(270 75% 65%));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 25% 98%));
-    --gradient-accent: linear-gradient(135deg, hsl(270 75% 65%), hsl(225 85% 55%));
+    /* Beautiful blue gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(215 95% 58%), hsl(200 95% 60%));
+    --gradient-card: linear-gradient(180deg, hsl(215 25% 99%), hsl(220 30% 97%));
+    --gradient-accent: linear-gradient(135deg, hsl(200 95% 60%), hsl(215 95% 68%));
+    --gradient-ocean: linear-gradient(45deg, hsl(215 95% 45%), hsl(200 95% 55%), hsl(210 85% 65%));
+    --gradient-sky: linear-gradient(180deg, hsl(200 85% 75%), hsl(215 85% 85%));
+    --gradient-hero: linear-gradient(135deg, hsl(215 95% 58%) 0%, hsl(200 95% 60%) 50%, hsl(210 85% 65%) 100%);
     
-    /* Shadows */
-    --shadow-soft: 0 2px 10px -2px hsl(220 15% 15% / 0.1);
-    --shadow-medium: 0 8px 30px -5px hsl(220 15% 15% / 0.15);
-    --shadow-glow: 0 0 30px hsl(225 85% 55% / 0.3);
+    /* Enhanced shadows with blue tints */
+    --shadow-soft: 0 2px 15px -3px hsl(215 95% 58% / 0.15);
+    --shadow-medium: 0 8px 35px -5px hsl(215 95% 58% / 0.2);
+    --shadow-glow: 0 0 40px hsl(215 95% 68% / 0.4);
+    --shadow-blue: 0 4px 20px -4px hsl(200 95% 60% / 0.3);
     
-    /* Animations */
+    /* Smooth animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.75rem;
 
@@ -83,46 +91,53 @@
   }
 
   .dark {
-    /* Dark theme for professional night mode */
-    --background: 220 25% 8%;
-    --foreground: 220 15% 92%;
+    /* Dark theme with enhanced blue aesthetics */
+    --background: 220 35% 6%;
+    --foreground: 215 25% 92%;
     
-    --card: 220 20% 10%;
-    --card-foreground: 220 15% 92%;
+    --card: 215 30% 8%;
+    --card-foreground: 215 25% 92%;
     
-    --popover: 220 20% 10%;
-    --popover-foreground: 220 15% 92%;
+    --popover: 215 30% 8%;
+    --popover-foreground: 215 25% 92%;
     
-    --primary: 225 85% 60%;
+    --primary: 215 95% 65%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 225 85% 70%;
+    --primary-glow: 215 95% 75%;
+    --primary-light: 215 85% 80%;
+    --primary-dark: 215 95% 50%;
     
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 220 15% 85%;
+    --secondary: 215 25% 12%;
+    --secondary-foreground: 215 25% 85%;
     
-    --muted: 220 15% 12%;
-    --muted-foreground: 220 15% 65%;
+    --muted: 215 25% 10%;
+    --muted-foreground: 215 20% 65%;
     
-    --accent: 270 75% 65%;
+    --accent: 200 95% 65%;
     --accent-foreground: 0 0% 100%;
-    --accent-glow: 270 75% 75%;
+    --accent-glow: 200 95% 75%;
+    --accent-light: 200 85% 80%;
     
-    --success: 150 65% 55%;
-    --warning: 45 95% 60%;
-    --destructive: 0 75% 60%;
+    --success: 150 65% 60%;
+    --warning: 45 95% 65%;
+    --destructive: 0 75% 65%;
     
-    --border: 220 15% 18%;
-    --input: 220 15% 15%;
-    --ring: 225 85% 60%;
+    --border: 215 25% 15%;
+    --input: 215 25% 12%;
+    --ring: 215 95% 65%;
     
-    /* Updated gradients for dark mode */
-    --gradient-primary: linear-gradient(135deg, hsl(225 85% 60%), hsl(270 75% 65%));
-    --gradient-card: linear-gradient(180deg, hsl(220 20% 10%), hsl(220 25% 8%));
-    --gradient-accent: linear-gradient(135deg, hsl(270 75% 65%), hsl(225 85% 60%));
+    /* Enhanced dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(215 95% 65%), hsl(200 95% 65%));
+    --gradient-card: linear-gradient(180deg, hsl(215 30% 8%), hsl(220 35% 6%));
+    --gradient-accent: linear-gradient(135deg, hsl(200 95% 65%), hsl(215 95% 75%));
+    --gradient-ocean: linear-gradient(45deg, hsl(215 95% 50%), hsl(200 95% 60%), hsl(210 85% 70%));
+    --gradient-sky: linear-gradient(180deg, hsl(200 85% 80%), hsl(215 85% 90%));
+    --gradient-hero: linear-gradient(135deg, hsl(215 95% 65%) 0%, hsl(200 95% 65%) 50%, hsl(210 85% 70%) 100%);
     
-    --shadow-soft: 0 2px 10px -2px hsl(0 0% 0% / 0.3);
-    --shadow-medium: 0 8px 30px -5px hsl(0 0% 0% / 0.4);
-    --shadow-glow: 0 0 30px hsl(225 85% 60% / 0.4);
+    --shadow-soft: 0 2px 15px -3px hsl(0 0% 0% / 0.4);
+    --shadow-medium: 0 8px 35px -5px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(215 95% 75% / 0.5);
+    --shadow-blue: 0 4px 20px -4px hsl(200 95% 65% / 0.4);
 
     --sidebar-background: 220 20% 10%;
     --sidebar-foreground: 220 15% 85%;
@@ -136,30 +151,110 @@
 }
 
 @layer components {
-  /* AI-enhanced component styles */
+  /* Lovable AI-enhanced component styles with moving graphics */
   .portia-card {
-    @apply bg-card border border-border rounded-xl shadow-[var(--shadow-soft)] transition-[var(--transition-smooth)];
+    @apply bg-card border border-border rounded-xl shadow-[var(--shadow-soft)] 
+           transition-[var(--transition-spring)] relative overflow-hidden;
   }
   
   .portia-card:hover {
-    @apply shadow-[var(--shadow-medium)] translate-y-[-2px];
+    @apply shadow-[var(--shadow-blue)] translate-y-[-3px] scale-[1.02];
   }
   
-  .gradient-primary {
-    background: var(--gradient-primary);
+  .portia-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary-glow) / 0.1), transparent);
+    transition: left 0.8s ease-in-out;
   }
   
-  .gradient-card {
-    background: var(--gradient-card);
+  .portia-card:hover::before {
+    left: 100%;
   }
   
-  .gradient-accent {
-    background: var(--gradient-accent);
+  /* Beautiful gradient classes */
+  .gradient-primary { background: var(--gradient-primary); }
+  .gradient-card { background: var(--gradient-card); }
+  .gradient-accent { background: var(--gradient-accent); }
+  .gradient-ocean { background: var(--gradient-ocean); }
+  .gradient-sky { background: var(--gradient-sky); }
+  .gradient-hero { background: var(--gradient-hero); }
+  
+  /* Enhanced glow effects */
+  .ai-glow { @apply shadow-[var(--shadow-glow)]; }
+  .blue-glow { @apply shadow-[var(--shadow-blue)]; }
+  
+  /* Moving background patterns */
+  .floating-shapes {
+    position: relative;
+    overflow: hidden;
   }
   
-  .ai-glow {
-    @apply shadow-[var(--shadow-glow)];
+  .floating-shapes::before,
+  .floating-shapes::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: hsl(var(--primary-glow) / 0.1);
+    animation: float 6s ease-in-out infinite;
   }
+  
+  .floating-shapes::before {
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+  }
+  
+  .floating-shapes::after {
+    bottom: -100px;
+    right: -100px;
+    animation-delay: 3s;
+    background: hsl(var(--accent-glow) / 0.1);
+  }
+  
+  /* Pulse animation for interactive elements */
+  .pulse-blue {
+    animation: pulse-blue 2s ease-in-out infinite;
+  }
+  
+  /* Smooth transitions for all interactive elements */
+  .lovable-transition {
+    transition: var(--transition-spring);
+  }
+  
+  .bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  25% { transform: translateY(-20px) translateX(10px) rotate(90deg); }
+  50% { transform: translateY(-10px) translateX(-10px) rotate(180deg); }
+  75% { transform: translateY(-25px) translateX(15px) rotate(270deg); }
+}
+
+@keyframes pulse-blue {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 0 20px hsl(var(--primary) / 0);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.3) translateY(20px); opacity: 0; }
+  50% { transform: scale(1.1) translateY(-10px); opacity: 0.8; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
 }
 
 @layer base {

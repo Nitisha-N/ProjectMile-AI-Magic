@@ -10,34 +10,34 @@ const Dashboard = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 gradient-card opacity-50" />
+      {/* Hero Section with floating shapes */}
+      <section className="relative overflow-hidden floating-shapes">
+        <div className="absolute inset-0 gradient-hero opacity-60" />
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-15"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
-        <div className="relative container mx-auto px-6 py-16">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              AI-Powered Project Management
+        <div className="relative container mx-auto px-6 py-20">
+          <div className="max-w-4xl bounce-in">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary-light bg-clip-text text-transparent">
+              AI-Powered Project Magic ✨
             </h1>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl">
-              Leverage Portia's AI capabilities to optimize your software development workflow, 
-              predict bottlenecks, and deliver projects faster than ever.
+            <p className="text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
+              Experience the future of software development with Portia's AI that predicts, 
+              optimizes, and accelerates your projects like never before.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-2 bg-card/80 backdrop-blur px-4 py-2 rounded-lg border">
-                <div className="w-2 h-2 bg-success rounded-full animate-pulse" />
-                <span className="text-sm">AI Analysis Active</span>
+            <div className="flex flex-wrap gap-6">
+              <div className="flex items-center gap-3 bg-card/90 backdrop-blur px-6 py-3 rounded-xl border blue-glow lovable-transition">
+                <div className="w-3 h-3 bg-success rounded-full pulse-blue" />
+                <span className="text-sm font-medium">AI Analysis Active</span>
               </div>
-              <div className="flex items-center gap-2 bg-card/80 backdrop-blur px-4 py-2 rounded-lg border">
-                <div className="w-2 h-2 bg-primary rounded-full" />
-                <span className="text-sm">12 Projects Tracked</span>
+              <div className="flex items-center gap-3 bg-card/90 backdrop-blur px-6 py-3 rounded-xl border blue-glow lovable-transition">
+                <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
+                <span className="text-sm font-medium">12 Projects Tracked</span>
               </div>
-              <div className="flex items-center gap-2 bg-card/80 backdrop-blur px-4 py-2 rounded-lg border">
-                <div className="w-2 h-2 bg-accent rounded-full" />
-                <span className="text-sm">24 Team Members</span>
+              <div className="flex items-center gap-3 bg-card/90 backdrop-blur px-6 py-3 rounded-xl border blue-glow lovable-transition">
+                <div className="w-3 h-3 bg-accent rounded-full animate-bounce" />
+                <span className="text-sm font-medium">24 Team Members</span>
               </div>
             </div>
           </div>

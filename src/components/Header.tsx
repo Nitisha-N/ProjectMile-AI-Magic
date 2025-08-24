@@ -30,9 +30,9 @@ const Header = ({ onMenuClick }: HeaderProps) => {
             </Button>
             
             <div className="flex items-center gap-3">
-              <div className="gradient-primary p-2 rounded-xl ai-glow">
-                <Sparkles className="h-6 w-6 text-white" />
-              </div>
+            <div className="gradient-ocean p-3 rounded-xl ai-glow pulse-blue">
+              <Sparkles className="h-6 w-6 text-white" />
+            </div>
               <div>
                 <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   Portia AI PM
