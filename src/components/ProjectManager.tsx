@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "./AuthProvider";
 import { 
   Plus, 
   Calendar, 
@@ -13,10 +14,12 @@ import {
   TrendingUp, 
   AlertTriangle,
   CheckCircle,
-  BarChart3
+  BarChart3,
+  LogIn
 } from "lucide-react";
 import CreateProjectDialog from "./CreateProjectDialog";
 import ProjectAnalytics from "./ProjectAnalytics";
+import AuthDialog from "./AuthDialog";
 
 interface Project {
   id: string;
@@ -38,20 +41,17 @@ const ProjectManager = () => {
   const [loading, setLoading] = useState(true);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showAuthDialog, setShowAuthDialog] = useState(false);
   const { toast } = useToast();
+  const { user } = useAuth();
 
   const fetchProjects = async () => {
-    try {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        toast({
-          title: "Authentication required",
-          description: "Please log in to view projects.",
-          variant: "destructive"
-        });
-        return;
-      }
+    if (!user) {
+      setLoading(false);
+      return;
+    }
 
+    try {
       const { data: projectsData, error } = await supabase
         .from('projects')
         .select(`
@@ -92,9 +92,17 @@ const ProjectManager = () => {
 
   useEffect(() => {
     fetchProjects();
-  }, []);
+  }, [user]);
 
   const handleCreateProject = () => {
+    if (!user) {
+      setShowAuthDialog(true);
+      return;
+    }
+    setIsCreateDialogOpen(true);
+  };
+
+  const handleProjectCreated = () => {
     setIsCreateDialogOpen(false);
     fetchProjects();
   };
@@ -143,6 +151,23 @@ const ProjectManager = () => {
     );
   }
 
+  if (!user) {
+    return (
+      <div className="flex flex-col items-center justify-center py-16">
+        <LogIn className="h-16 w-16 text-muted-foreground mb-6" />
+        <h2 className="text-2xl font-semibold mb-4">Authentication Required</h2>
+        <p className="text-muted-foreground text-center mb-8 max-w-md">
+          Please sign in to access your project management dashboard and start creating projects with AI insights.
+        </p>
+        <Button onClick={() => setShowAuthDialog(true)} size="lg">
+          <LogIn className="h-5 w-5 mr-2" />
+          Sign In to Continue
+        </Button>
+        <AuthDialog open={showAuthDialog} onClose={() => setShowAuthDialog(false)} />
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -154,7 +179,7 @@ const ProjectManager = () => {
           </p>
         </div>
         <Button 
-          onClick={() => setIsCreateDialogOpen(true)}
+          onClick={handleCreateProject}
           className="bg-primary hover:bg-primary-glow"
         >
           <Plus className="h-4 w-4 mr-2" />
@@ -260,7 +285,7 @@ const ProjectManager = () => {
             <p className="text-muted-foreground mb-4">
               Create your first project to start tracking progress and getting AI insights
             </p>
-            <Button onClick={() => setIsCreateDialogOpen(true)}>
+            <Button onClick={handleCreateProject}>
               <Plus className="h-4 w-4 mr-2" />
               Create First Project
             </Button>
@@ -269,18 +294,22 @@ const ProjectManager = () => {
       )}
 
       {/* Dialogs */}
-      <CreateProjectDialog 
-        open={isCreateDialogOpen}
-        onClose={() => setIsCreateDialogOpen(false)}
-        onSuccess={handleCreateProject}
-      />
+      {user && (
+        <>
+          <CreateProjectDialog 
+            open={isCreateDialogOpen}
+            onClose={() => setIsCreateDialogOpen(false)}
+            onSuccess={handleProjectCreated}
+          />
 
-      {selectedProject && (
-        <ProjectAnalytics 
-          project={selectedProject}
-          open={!!selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
+          {selectedProject && (
+            <ProjectAnalytics 
+              project={selectedProject}
+              open={!!selectedProject}
+              onClose={() => setSelectedProject(null)}
+            />
+          )}
+        </>
       )}
     </div>
   );

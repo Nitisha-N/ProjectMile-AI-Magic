@@ -5,15 +5,31 @@ import {
   Settings, 
   Search,
   Sparkles,
-  Menu
+  Menu,
+  LogOut,
+  User
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "./AuthProvider";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import AuthDialog from "./AuthDialog";
+import { useState } from "react";
 
 interface HeaderProps {
   onMenuClick?: () => void;
 }
 
 const Header = ({ onMenuClick }: HeaderProps) => {
+  const { user, signOut } = useAuth();
+  const [showAuthDialog, setShowAuthDialog] = useState(false);
+
+  const handleAuthAction = () => {
+    if (user) {
+      signOut();
+    } else {
+      setShowAuthDialog(true);
+    }
+  };
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-6 py-4">
@@ -57,26 +73,55 @@ const Header = ({ onMenuClick }: HeaderProps) => {
 
           {/* Right section */}
           <div className="flex items-center gap-3">
-            <Button variant="ghost" size="sm" className="relative">
-              <Bell className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 h-4 w-4 bg-destructive rounded-full text-xs text-destructive-foreground flex items-center justify-center">
-                3
-              </span>
-            </Button>
+            {user && (
+              <>
+                <Button variant="ghost" size="sm" className="relative">
+                  <Bell className="h-5 w-5" />
+                  <span className="absolute -top-1 -right-1 h-4 w-4 bg-destructive rounded-full text-xs text-destructive-foreground flex items-center justify-center">
+                    3
+                  </span>
+                </Button>
+                
+                <Button variant="ghost" size="sm">
+                  <Settings className="h-5 w-5" />
+                </Button>
+              </>
+            )}
             
-            <Button variant="ghost" size="sm">
-              <Settings className="h-5 w-5" />
-            </Button>
-            
-            <Avatar className="h-8 w-8">
-              <AvatarImage src="" />
-              <AvatarFallback className="bg-primary text-primary-foreground text-sm">
-                PM
-              </AvatarFallback>
-            </Avatar>
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage src="" />
+                      <AvatarFallback className="bg-primary text-primary-foreground text-sm">
+                        {user.user_metadata?.full_name?.charAt(0) || user.email?.charAt(0) || 'U'}
+                      </AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56" align="end" forceMount>
+                  <DropdownMenuItem className="flex-col items-start">
+                    <div className="font-medium">{user.user_metadata?.full_name || 'User'}</div>
+                    <div className="text-xs text-muted-foreground">{user.email}</div>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={signOut}>
+                    <LogOut className="mr-2 h-4 w-4" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Button onClick={() => setShowAuthDialog(true)}>
+                <User className="h-4 w-4 mr-2" />
+                Sign In
+              </Button>
+            )}
           </div>
         </div>
       </div>
+
+      <AuthDialog open={showAuthDialog} onClose={() => setShowAuthDialog(false)} />
     </header>
   );
 };
