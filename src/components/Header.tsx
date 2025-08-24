@@ -35,7 +35,7 @@ const Header = ({ onMenuClick }: HeaderProps) => {
             </div>
               <div>
                 <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Portia AI PM
+                  ProjectMile AI
                 </h1>
                 <p className="text-xs text-muted-foreground">
                   Intelligent Project Management

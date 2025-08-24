@@ -19,8 +19,8 @@ const Dashboard = () => {
         />
         <div className="relative container mx-auto px-6 py-20">
           <div className="max-w-4xl bounce-in">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary-light bg-clip-text text-transparent">
-              AI-Powered Project Magic ✨
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-primary-dark">
+              ProjectMile AI Magic ✨
             </h1>
             <p className="text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
               Experience the future of software development with Portia's AI that predicts, 
